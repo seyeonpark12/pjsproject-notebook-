@@ -1,15 +1,28 @@
+<%@page import="data.dto.MemberDto"%>
+<%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
-</head>
-<body>
+<%
+	request.setCharacterEncoding("utf-8");
 
-</body>
-</html>
+	MemberDao dao=new MemberDao();
+	MemberDto dto=new MemberDto();
+	
+	String name=request.getParameter("name");
+	String id=request.getParameter("id");
+	String pass=request.getParameter("pass");
+	String hp=request.getParameter("hp");
+	String addr=request.getParameter("addr");
+	String email=request.getParameter("email1")+"@"+request.getParameter("email2");
+	
+	dto.setName(name);
+	dto.setId(id);
+	dto.setPass(pass);
+	dto.setHp(hp);
+	dto.setAddr(addr);
+	dto.setEmail(email);
+	
+	dao.insertMember(dto);
+	
+	response.sendRedirect("../index.jsp?main=member/gaipsuccess.jsp?id="+id);
+%>

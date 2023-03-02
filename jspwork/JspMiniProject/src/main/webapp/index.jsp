@@ -51,7 +51,6 @@
 		font-size: 12pt;
 		top: 280px;
 		left: 180px;
-		text-align: center;
 		padding-left: 100px;
 		padding-right: 100px;
 	}

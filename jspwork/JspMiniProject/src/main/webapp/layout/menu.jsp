@@ -17,6 +17,13 @@
 <%
    //프로젝트 경로 구하기..절대경로
    String root=request.getContextPath();
+   
+   //아이디
+   String myid=(String)session.getAttribute("myid");
+
+   //로그인상태
+   String loginok=(String)session.getAttribute("loginok");
+   
 %>
 <body>
 <div id="wrap">
@@ -26,9 +33,27 @@
                <li class="parent">
                   <a href="#">유저</a>
                   <ul class="sub-menu">
-                     <li><a href="<%=root%>/index.jsp?main=login/loginmain.jsp"><i></i>로그인</a></li>
-                     <li><a href="<%=root%>/index.jsp?main=member/addform.jsp"><i></i>회원가입</a></li>
-                     <li><a href="<%=root%>/index.jsp?main=member/memberlist.jsp"><i></i>회원목록</a></li>
+                  
+                  	 <%
+                  	 	if(loginok==null){%>
+                  	 		
+                     		<li><a href="<%=root%>/index.jsp?main=member/addform.jsp"><i></i>회원가입</a></li>  	 		
+                  	 	<%}
+                  	 %>
+                     
+                     <%
+                     	if(loginok!=null){%>
+                        	
+                        	<li><a href="index.jsp?main=member/myinfo.jsp"><i></i>내정보</a></li>                    		
+                     	<%}
+                     %>
+                     <%
+                        //로그인중이고 그 아이디가 관리자
+                        if(loginok!=null && myid.equals("admin")){%>
+                           
+                              <li><a href="<%=root%>/index.jsp?main=member/memberlist.jsp"><i></i>회원목록</a></li>
+                        <%}
+                     %>
                   </ul>
                </li>
                <li><a href="<%=root%>/index.jsp?main=guest/guestlist.jsp">방명록</a></li>

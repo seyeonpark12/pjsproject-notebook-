@@ -6,6 +6,7 @@
 
 <%
    String num=request.getParameter("num");
+   String currentPage=request.getParameter("currentPage");
    
    GuestDao dao=new GuestDao();
    GuestDto dto=dao.getData(num);
@@ -25,5 +26,5 @@
    dao.deleteGuest(num);
    
    
-   response.sendRedirect("../index.jsp?main=guest/guestlist.jsp");
+   response.sendRedirect("../index.jsp?main=guest/guestlist.jsp?currentPage="+currentPage);
 %>

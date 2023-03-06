@@ -60,7 +60,7 @@
                <li>
                   <a href="<%=root%>/index.jsp?main=board/boardlist.jsp">Q&A게시판</a>
                </li>
-               <li><a href="#">스마트게시판</a></li>
+               <li><a href="index.jsp?main=board/smartform.jsp">스마트게시판</a></li>
                <li><a href="#">상품등록</a></li>
             </ul>
 

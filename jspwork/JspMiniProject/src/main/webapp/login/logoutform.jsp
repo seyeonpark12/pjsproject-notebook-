@@ -1,3 +1,4 @@
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -17,6 +18,7 @@
    
    //아이디에 따른 이름 얻어오기
    String name=dao.getName(myid);
+   
 %>
 
 <div>

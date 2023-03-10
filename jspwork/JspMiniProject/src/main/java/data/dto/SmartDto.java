@@ -11,6 +11,8 @@ public class SmartDto {
 	private int readcount;
 	private Timestamp writeday;
 	
+	private int answercount; //댓글개수저장 
+	
 	
 	public String getNum() {
 		return num;
@@ -47,5 +49,11 @@ public class SmartDto {
 	}
 	public void setWriteday(Timestamp writeday) {
 		this.writeday = writeday;
+	}
+	public int getAnswercount() {
+		return answercount;
+	}
+	public void setAnswercount(int answercount) {
+		this.answercount = answercount;
 	}
 }

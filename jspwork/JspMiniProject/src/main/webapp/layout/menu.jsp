@@ -58,10 +58,26 @@
                </li>
                <li><a href="<%=root%>/index.jsp?main=guest/guestlist.jsp">방명록</a></li>
                <li>
-                  <a href="<%=root%>/index.jsp?main=board/boardlist.jsp">Q&A게시판</a>
+                  <a href="">Q&A게시판</a>
                </li>
-               <li><a href="index.jsp?main=board/smartform.jsp">스마트게시판</a></li>
-               <li><a href="#">상품등록</a></li>
+               <li><a href="index.jsp?main=board/boardlist.jsp">스마트게시판</a></li>
+               
+            	 <li>
+            	 <a href="#">Shop</a>
+            	<ul class="sub-menu">
+            	
+            	<%
+            		if(loginok!=null && myid.equals("admin")){%>
+            			
+               			<li><a href="index.jsp?main=shop/addform.jsp">상품등록</a></li>
+            		<%}		
+            	%>
+            	
+               		<li><a href="index.jsp?main=shop/shoplist.jsp">상품목록</a></li>
+            	
+            	</ul>
+            	</li>
+           
             </ul>
 
          <div class="clear"></div>

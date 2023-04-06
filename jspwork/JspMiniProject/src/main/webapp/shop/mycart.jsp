@@ -47,7 +47,7 @@
 		});
 		
 		//휴지통모양 개별삭제
-		$("span,del").click(function(){
+		$("span.del").click(function(){
 			
 			var idx=$(this).attr("idx");
 			//alert(idx);

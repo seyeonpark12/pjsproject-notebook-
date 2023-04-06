@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sawon">
+	<select id="getTotalCount" resultType="int">
+		select count(*) from sawon
+	</select>
+	
+	<insert id="insert" parameterType="sdto">
+		insert into sawon value(null,#{name},#{driver},#{buseo},#{image},now())
+	</insert>
+	
+	<select id="getAllDatas" resultType="sdto">
+		select * from sawon order by num desc
+	</select>
+	
+	<select id="getData" resultType="sdto" parameterType="String">
+		select * from sawon where num=#{num}
+	</select>
+	
+<!-- 	<update id="update" parameterType="sdto">
+		update sawon set name=#{name},driver=#{driver},buseo=#{buseo},image=#{image} where num=#{num}
+		</update> -->
+	
+	<update id="update" parameterType="sdto">
+		update sawon set name=#{name},driver=#{driver},buseo=#{buseo}
+		<if test="image!=null">
+			,image=#{image}
+		</if>
+		 where num=#{num}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from sawon where num=#{num}
+	</delete>
+	
+	<!-- 검색구현 -->
+		<select id="getDatasTitle" resultType="sdto" parameterType="Map">
+		select * from sawon
+		<if test="search!=null">
+			where ${title} like concat('%',#{search},'%') 
+		</if>
+		  order by num desc
+	</select>
+	
+	
+</mapper>

@@ -33,8 +33,6 @@
 <body>
 
    <div>
-      <!-- 이미지 미리보기 할 위치 -->
-      <img id="showimg" style="position: absolute; left:800px;top: 100px;max-width: 200px;">
       <form action="guest/addaction.jsp" method="post" enctype="multipart/form-data">
          <table style="width: 600px;">
             <caption>
@@ -42,12 +40,14 @@
                <span class="glyphicon glyphicon-camera camera"></span>
                 <input type="file" name="photo" id="photo" style="visibility: hidden;"
                 onchange="readURL(this)">
+     			<!-- 이미지 미리보기 할 위치 -->
+     			<img id="showimg" style="position: absolute; left:800px;top: 100px;max-width: 200px;">
             </caption>
             
             <tr height="100">
                <td width="500">
                   <textarea style="width: 480px;height: 100px;"
-                  class="form-control" name="content" required="required"></textarea>
+                  class="form-control" name="content"></textarea>
                </td>
                <td>
                   <button type="submit" class="btn btn-info" style="width: 100px; height: 100px;">등록</button>
